@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.CompileSdk
+    buildToolsVersion rootProject.ext.BuildTools
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def appName = parent.name
+            def fileName = appName.replace(" ", "_")
+            outputFileName = "$fileName-v${variant.versionName}.apk"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.codingcriminals.gamewallzfree"
+        minSdkVersion rootProject.ext.MinSdk
+        targetSdkVersion rootProject.ext.TargetSdk
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Library
+    implementation project(':library')
+}

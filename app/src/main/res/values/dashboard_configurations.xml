@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
+    <!-- ======================================================================================= -->
+    <!-- ============================== DASHBOARD CONFIGURATIONS =============================== -->
+    <!-- ======================================================================================= -->
+
+    <!-- CONFIG: APPLICATION NAME -->
+
+    <string name="app_name">Game Wallz Free</string>
+
+    <!-- CONFIG: DEFAULT THEME -->
+
+    <!-- Use dark theme as default theme -->
+    <bool name="use_dark_theme">true</bool>
+
+    <!-- CONFIG: MUZEI -->
+
+    <!-- Muzei art source name -->
+    <string name="muzei_art_source_name">Your Art Source Name</string>
+
+    <!-- Muzei art source description -->
+    <string name="muzei_art_source_desc">Your Art Source Description</string>
+
+    <!-- Muzei base color -->
+    <color name="muzei_color">#F44336</color>
+
+    <!-- CONFIG: TOOLBAR -->
+
+    <!-- Toolbar title -->
+    <string name="toolbar_title">Game Wallz Free</string>
+
+    <!-- CONFIG: Wallpapers -->
+
+    <!-- Wallpaper json link -->
+    <string name="wallpaper_json">https://raw.githubusercontent.com/TechnoBeat99/Temp/master/wallpaper_free.json</string>
+
+    <!-- Allow to download wallpaper
+    * If disabled user only able to apply wallpaper from dashboard -->
+    <bool name="enable_wallpaper_download">false</bool>
+
+    <!-- CONFIG: NAVIGATION VIEW HEADER -->
+
+    <!-- Navigation view header image
+    * If you want to use image from url, just put the url here
+    * If you want to use image stored in project (drawable folder)
+    * just put image name here without the extension
+    * ex: navigation_view_header.png -> navigation_view_header
+    * If you want to use solid color, you can put hex color code here
+    * ex: <string name="navigation_view_header">#000000</string> -->
+    <string name="navigation_view_header">https://raw.githubusercontent.com/TechnoBeat99/Temp/master/1024.png</string>
+
+    <!-- Navigation view header text
+    * Leave empty if you don't want to show any text -->
+    <string name="navigation_view_header_title">Game Wallz Free</string>
+
+    <!-- CONFIG: ABOUT -->
+
+    <!-- About header image
+    * If you want to use image from url, just put the url here
+    * If you want to use image stored in project (drawable folder)
+    * just put image name here without the extension (ex: about_image.png -> about_image)
+    * If you want to use solid color, you can put hex color code here
+    * ex: <string name="about_image">#000000</string> -->
+    <string name="about_image">https://raw.githubusercontent.com/TechnoBeat99/Temp/master/1024.png</string>
+
+    <!-- About profile image
+    * If you want to use image from url, just put the url here
+    * If you want to use image stored in project (drawable folder)
+    * just put image name here without the extension (ex: about_profile_image.png -> about_profile_image) -->
+    <string name="about_profile_image">http://codingcriminals.me/assets/img/coding-criminals.jpg</string>
+
+    <!-- About title above description -->
+    <string name="about_title">Game Wallz Free</string>
+
+    <!-- About description below title -->
+    <string name="about_desc"><![CDATA[
+        Game Wallz Free is a Wallpaper app by <b>Coding Criminals</b>
+        for Game Lovers. To Support us And Remove Ads,
+        <a href="https://play.google.com/store/apps/developer?id=Coding+Criminals&hl=en">Consider Buying Pro Version Which is coming soon.</a>.
+        ]]></string>
+
+    <!-- Social link inside about
+    * Supported link:
+    * Email, Behance, Dribbble, Facebook, Github, Google+, Instagram, Pinterest, Twitter
+    * The link will be marked as regular website if doesn't listed above
+    *
+    * If you don't want to show social link, just set about_social_links to empty
+    * ex:
+    * <string-array name="about_social_links"></string-array>-->
+    <string-array name="about_social_links">
+        <item>https://www.instagram.com/_u/codingcriminals</item>
+        <item>https://twitter.com/CodingCriminals/</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>http://codingcriminals.me/</item>
+        <item>codingcriminals@gmail.com</item>
+    </string-array>
+
+    <!-- Contributors dialog
+    * Take a look inside values/xml/contributors.xml to add contributors -->
+    <bool name="show_contributors_dialog">false</bool>
+
+    <!-- CONFIG: DONATE -->
+
+    <!-- DONATION
+    * Show support development option in navigation view
+    * default: true
+    * change to false to disable it -->
+    <bool name="enable_donation">true</bool>
+
+    <!-- Take a look inside License.java for donation product -->
+
+</resources>
