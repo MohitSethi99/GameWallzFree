@@ -16,8 +16,8 @@ android {
         applicationId "com.codingcriminals.gamewallzfree"
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.01"
         vectorDrawables.useSupportLibrary = true
     }
 

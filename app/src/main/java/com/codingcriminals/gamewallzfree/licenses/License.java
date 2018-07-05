@@ -34,7 +34,7 @@ public class License {
      * Your license key
      * If your app hasn't published at play store, publish it first as beta, get license key
      */
-    private static final String LICENSE_KEY = "YOUR LICENSE KEY";
+    private static final String LICENSE_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh42R+ZM1CQzQTFZe/ikA2JRIm01rt4z9TayBv0FQZlrdGU6hiTgtNCNq7G5QhAmlux3RLf9J/l8NzFAvycmQv8TP3zdGwRfl02tsVoZUq5PgbhJJc8nU5EclpIxU7LNP8ZPz0WeHQnQebC8025RGde56kVgspfE2l6JZyI2DyWFf4AzgLAiTQ6B6m5ofeBSiiEei5P/aXFn4YAYxTXw1he0CYd27yYQJg/hStkQsCR1gGsOh2DxQngsUCYI+8nU7MYKlktHY5GWa9jb27cpkwH/auXIYN/zo3Udur1rwoFGskDEIardfRbzkWZoFzLMD0KkblfcvkHWC6RtUiqah4wIDAQAB";
 
     /*
      * NOTE: Make sure your app name in project same as app name at play store listing

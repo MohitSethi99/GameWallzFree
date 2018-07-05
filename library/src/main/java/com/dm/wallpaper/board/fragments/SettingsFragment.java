@@ -28,6 +28,8 @@ import com.dm.wallpaper.board.items.Setting;
 import com.dm.wallpaper.board.preferences.Preferences;
 import com.danimahardhika.android.helpers.core.utils.LogUtil;
 import com.dm.wallpaper.board.utils.listeners.NavigationListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -64,11 +66,17 @@ public class SettingsFragment extends Fragment {
     @BindView(R2.id.toolbar)
     Toolbar mToolbar;
 
+    private AdView mAdView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         ButterKnife.bind(this, view);
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         if (!Preferences.get(getActivity()).isShadowEnabled()) {
             View shadow = view.findViewById( R.id.shadow);
@@ -130,7 +138,7 @@ public class SettingsFragment extends Fragment {
                         formatter.format(cache) + " MB"))
                 .build()
         );
-
+/*
         settings.add(Setting.Builder(Setting.Type.HEADER)
                 .icon(R.drawable.ic_toolbar_theme)
                 .title(getActivity().getResources().getString(R.string.pref_theme_header))
@@ -143,7 +151,7 @@ public class SettingsFragment extends Fragment {
                 .checkboxState(Preferences.get(getActivity()).isDarkTheme() ? 1 : 0)
                 .build()
         );
-
+*/
         settings.add(Setting.Builder(Setting.Type.HEADER)
                 .icon(R.drawable.ic_toolbar_wallpapers)
                 .title(getActivity().getResources().getString(R.string.pref_wallpaper_header))

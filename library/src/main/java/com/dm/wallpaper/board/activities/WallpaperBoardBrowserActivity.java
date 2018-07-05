@@ -19,6 +19,8 @@ import com.dm.wallpaper.board.fragments.WallpaperSearchFragment;
 import com.dm.wallpaper.board.helpers.LocaleHelper;
 import com.dm.wallpaper.board.preferences.Preferences;
 import com.dm.wallpaper.board.utils.Extras;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -50,6 +52,8 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
     private String mCategoryName;
     private String mFragmentTag;
 
+    private AdView mAdView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.setTheme(Preferences.get(this).isDarkTheme() ?
@@ -57,6 +61,10 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_browser);
         ButterKnife.bind(this);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         int color = ColorHelper.getAttributeColor(this, R.attr.colorPrimary);
         ColorHelper.setupStatusBarIconColor(this, ColorHelper.isLightColor(color));

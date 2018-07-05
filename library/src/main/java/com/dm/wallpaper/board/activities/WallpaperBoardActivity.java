@@ -66,6 +66,7 @@ import com.dm.wallpaper.board.utils.InAppBillingProcessor;
 import com.dm.wallpaper.board.utils.listeners.InAppBillingListener;
 import com.dm.wallpaper.board.utils.listeners.NavigationListener;
 import com.dm.wallpaper.board.utils.views.HeaderView;
+import com.google.android.gms.ads.MobileAds;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
@@ -118,12 +119,13 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_board);
         ButterKnife.bind(this);
+
+        MobileAds.initialize(this, "ca-app-pub-1256179681836834~6852503604");
+
+
         startService(new Intent(this, WallpaperBoardService.class));
 
-        //Todo: wait until google fix the issue, then enable wallpaper crop again on API 26+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Preferences.get(this).setCropWallpaper(false);
-        }
+        Preferences.get(this).setCropWallpaper(true);
 
         mConfig = onInit();
         InAppBillingProcessor.get(this).init(mConfig.getLicenseKey());

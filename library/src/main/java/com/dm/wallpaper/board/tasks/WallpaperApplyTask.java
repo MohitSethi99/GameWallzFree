@@ -27,6 +27,7 @@ import com.dm.wallpaper.board.items.Wallpaper;
 import com.dm.wallpaper.board.preferences.Preferences;
 import com.dm.wallpaper.board.utils.ImageConfig;
 import com.danimahardhika.android.helpers.core.utils.LogUtil;
+import com.google.android.gms.ads.InterstitialAd;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 
@@ -60,6 +61,8 @@ public class WallpaperApplyTask extends AsyncTask<Void, Void, Boolean> implement
     private Executor mExecutor;
     private Wallpaper mWallpaper;
     private MaterialDialog mDialog;
+
+    static InterstitialAd interstitialAd;
 
     private WallpaperApplyTask(Context context) {
         mContext = new WeakReference<>(context);
@@ -393,10 +396,17 @@ public class WallpaperApplyTask extends AsyncTask<Void, Void, Boolean> implement
                     .fitSystemWindow()
                     .content(R.string.wallpaper_applied)
                     .show();
+
+            interstitialAd.show();
+
         } else {
             Toast.makeText(mContext.get(), R.string.wallpaper_apply_failed,
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static void LoadAd(InterstitialAd ad) {
+        interstitialAd = ad;
     }
 
     public enum Apply {

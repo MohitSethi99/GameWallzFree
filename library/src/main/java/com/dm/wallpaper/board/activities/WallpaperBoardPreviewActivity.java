@@ -24,6 +24,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.transition.Transition;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -63,6 +64,8 @@ import com.danimahardhika.android.helpers.core.utils.LogUtil;
 import com.dm.wallpaper.board.utils.Tooltip;
 import com.dm.wallpaper.board.utils.WallpaperDownloader;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.kogitune.activitytransition.ActivityTransition;
 import com.kogitune.activitytransition.ExitActivityTransition;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -140,6 +143,8 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
 
     private boolean mIsBottomPanelDragged = false;
 
+    private InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.setTheme(Preferences.get(this).isDarkTheme() ?
@@ -147,6 +152,10 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_preview);
         ButterKnife.bind(this);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1256179681836834/6562651579");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mProgress.getIndeterminateDrawable().setColorFilter(
                 Color.parseColor("#CCFFFFFF"), PorterDuff.Mode.SRC_IN);
@@ -352,6 +361,13 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
 
     @Override
     public void onClick(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            WallpaperApplyTask.LoadAd(mInterstitialAd);
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
         int id = view.getId();
         if (id == R.id.back) {
             onBackPressed();
